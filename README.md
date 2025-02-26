@@ -81,8 +81,8 @@ L’application sera disponible sur **http://localhost:4200**.
 ## 📞 Contact
 
 Si tu as des questions ou des suggestions, n’hésite pas à me contacter :  
-📧 Email : [contact@JobHub.com](mailto:contact@JobHub.com)  
-📍 Localisation : Paris, France  
+📧 Email : [omarlachiri18@gmail.com](mailto:contact@JobHub.com)  
+📍 Localisation : Tangier, morocco  
 
 ---
 
