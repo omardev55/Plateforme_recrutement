@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+<div class="login-container">
+    <div class="login-left">
+      <h2>Login! 👋</h2>
+      <p>How do I get started?</p>
+      <button class="btn btn-google">Sign in with Google</button>
+      <button class="btn btn-apple">Sign in with Apple</button>
+      <p>or Login with Email</p>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <label for="username">Username</label>
+        <input type="text" id="username" formControlName="username" placeholder="username">
+        
+        <label for="password">Password</label>
+        <input [type]="isPasswordVisible ? 'text' : 'password'" id="password" formControlName="password" placeholder="******">
+        <button type="button" (click)="togglePasswordVisibility()">👁️</button>
+      
+        <button type="submit" class="btn btn-signin">Sign In</button>
+      
+        <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+      </form>
+      
+      <p>Don't have an account? <a href="./signup">Sign Up Now</a></p>
+    </div>
+    <div class="login-right">
+      <div class="login-info">
+        <h3>Why should I login?</h3>
+        <p>By logging in, you can access your personal dashboard, where you can manage your account, view your profile, and much more.</p>
+        <img src="assets/dashboard-example.png" alt="Dashboard example">
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>

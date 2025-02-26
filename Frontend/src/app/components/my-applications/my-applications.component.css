@@ -1,0 +1,87 @@
+/* 🌟 Container principal */
+.applications-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .applications-container h2 {
+    text-align: center;
+    color: #0048ff;
+    margin-bottom: 20px;
+  }
+  
+  /* 📌 Liste des candidatures */
+  .applications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* 🎨 Carte de candidature */
+  .application-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-radius: 8px;
+    background: #f9f9f9;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .application-card:hover {
+    transform: translateY(-3px);
+  }
+  
+  /* 📌 Informations sur l'emploi */
+  .app-info h3 {
+    margin: 0;
+    color: #333;
+  }
+  
+  .app-info p {
+    margin: 5px 0;
+    color: #666;
+  }
+  
+  /* 🚦 Statut de la candidature */
+  .status {
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+  
+  .pending {
+    background: #ffcc00;
+    color: white;
+  }
+  
+  .accepted {
+    background: #28a745;
+    color: white;
+  }
+  
+  .rejected {
+    background: #dc3545;
+    color: white;
+  }
+  
+  /* 📱 Responsive */
+  @media (max-width: 768px) {
+    .application-card {
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+  
+    .status {
+      margin-top: 10px;
+    }
+  }
+  

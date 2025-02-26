@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <h2>📋 Liste des candidatures</h2>
+  
+    <div class="filters">
+      <input type="text" [(ngModel)]="filters.jobTitle" (input)="applyFilters()" placeholder="🔍 Rechercher un poste">
+      <input type="date" [(ngModel)]="filters.startDate" (change)="applyFilters()">
+      <input type="date" [(ngModel)]="filters.endDate" (change)="applyFilters()">
+      <select [(ngModel)]="filters.status" (change)="applyFilters()">
+        <option value="">📌 Tous les statuts</option>
+        <option value="En attente">🕒 En attente</option>
+        <option value="Entretien prévu">📅 Entretien prévu</option>
+        <option value="Accepté">✅ Accepté</option>
+        <option value="Rejeté">❌ Rejeté</option>
+      </select>
+      <input type="number" [(ngModel)]="filters.experience" (input)="applyFilters()" min="0" placeholder="⏳ Expérience (ans)">
+    </div>
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th>👤 Candidat</th>
+          <th>💼 Poste</th>
+          <th>📅 Date</th>
+          <th>📌 Statut</th>
+          <th>⏳ Expérience</th>
+          <th>⚙️ Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let app of filteredApplications">
+          <td>{{ app.name }}</td>
+          <td>{{ app.jobTitle }}</td>
+          <td>{{ app.date }}</td>
+          <td>
+            <select [(ngModel)]="app.status" (change)="changeStatus(app, app.status)">
+              <option value="En attente">🕒 En attente</option>
+              <option value="Entretien prévu">📅 Entretien prévu</option>
+              <option value="Accepté">✅ Accepté</option>
+              <option value="Rejeté">❌ Rejeté</option>
+            </select>
+          </td>
+          <td>{{ app.experience }} ans</td>
+          <td>
+            <button (click)="deleteApplication(app.id)" class="btn btn-danger">🗑️ Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <app-footer></app-footer>

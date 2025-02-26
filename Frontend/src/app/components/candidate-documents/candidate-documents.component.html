@@ -1,0 +1,36 @@
+<app-navbar></app-navbar> 
+
+<div class="container">
+  <h2>📁 Mes Documents</h2>
+
+  <!-- Upload de fichiers -->
+  <div class="upload-box">
+    <input type="file" (change)="uploadDocument($event)" id="fileInput" hidden>
+    <label for="fileInput" class="upload-btn">📤 Ajouter un document</label>
+  </div>
+
+  <!-- Liste des documents -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>📄 Nom</th>
+        <th>📑 Type</th>
+        <th>📅 Ajouté le</th>
+        <th>⚙️ Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let doc of documents">
+        <td>{{ doc.name }}</td>
+        <td>{{ doc.type }}</td>
+        <td>{{ doc.uploadedAt }}</td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteDocument(doc.id)">🗑️ Supprimer</button>
+          <button class="bttn bttn-danger" (click)="viewDoc(doc.id)">👁️ Voir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-footer></app-footer>

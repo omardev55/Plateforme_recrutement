@@ -1,0 +1,77 @@
+/* 🌟 Conteneur général */
+.create-job-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  /* 🎨 Titre */
+  .create-job-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  /* 📋 Formulaire */
+  .create-job-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .create-job-container label {
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+  
+  .create-job-container input, .create-job-container select, .create-job-container textarea {
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .create-job-container textarea {
+    resize: none;
+    height: 100px;
+  }
+  
+  /* 🚀 Bouton Créer */
+  .btn-create {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-create:hover {
+    background-color: #2c65b5;
+  }
+  
+  /* ❌ Message d'erreur (facultatif) */
+  .error-message {
+    color: #dc3545;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  /* 📱 Responsive */
+  @media (max-width: 768px) {
+    .create-job-container {
+      padding: 1rem;
+    }
+  
+    .btn-create {
+      font-size: 0.9rem;
+      padding: 0.8rem;
+    }
+  }

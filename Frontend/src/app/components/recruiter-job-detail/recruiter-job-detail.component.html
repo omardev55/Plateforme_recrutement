@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <h2>📄 Détails de l'annonce</h2>
+
+  <!-- Informations sur le job -->
+  <div class="job-details">
+    <h3>{{ job.title }}</h3>
+    <p><strong>📍 Localisation :</strong> {{ job.location }}</p>
+    <p><strong>💰 Salaire :</strong> {{ job.salary }}</p>
+    <p><strong>🗓️ Publié le :</strong> {{ job.publishedAt }}</p>
+    <p><strong>🔵 Statut :</strong> {{ job.status }}</p>
+    <p class="description"><strong>📝 Description :</strong> {{ job.description }}</p>
+
+    <button class="btn btn-warning" (click)="editJob()">✏️ Modifier</button>
+    <button class="btn btn-danger" (click)="deleteJob()">🗑️ Supprimer</button>
+  </div>
+
+  <!-- Liste des candidats -->
+  <h3>👥 Candidats postulants</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>👤 Nom</th>
+        <th>⏳ Expérience</th>
+        <th>📧 Email</th>
+        <th>📌 Statut</th>
+        <th>⚙️ Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let candidate of candidates">
+        <td>{{ candidate.name }}</td>
+        <td>{{ candidate.experience }}</td>
+        <td>{{ candidate.email }}</td>
+        <td>{{ candidate.status }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="viewCV(candidate.email)">📄 Voir CV</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-footer></app-footer>

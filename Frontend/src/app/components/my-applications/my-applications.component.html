@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+<div class="applications-container">
+    <h2>Mes Candidatures</h2>
+  
+    <!-- Affichage si aucune candidature -->
+    <div class="no-applications" *ngIf="applications.length === 0">
+      <p>Aucune candidature trouvée.</p>
+    </div>
+  
+    <!-- Liste des candidatures -->
+    <div class="applications-list">
+      <div class="application-card" *ngFor="let app of applications">
+        <div class="app-info">
+          <h3>{{ app.jobTitle }}</h3>
+          <p><strong>Entreprise :</strong> {{ app.company }}</p>
+          <p><strong>Date de candidature :</strong> {{ app.date | date:'longDate' }}</p>
+        </div>
+  
+        <!-- Statut de la candidature -->
+        <span class="status" [ngClass]="{
+          'pending': app.status === 'En attente',
+          'accepted': app.status === 'Acceptée',
+          'rejected': app.status === 'Refusée'
+        }">
+          {{ app.status }}
+        </span>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>

@@ -1,0 +1,215 @@
+/* 🌟 Container principal */
+.job-list-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .job-list-container h2 {
+    text-align: center;
+    color: #0048ff;
+    margin-bottom: 20px;
+  }
+  
+  /* 🔍 Barre de recherche */
+  .search-bar {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .search-bar input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  /* 🏢 Cartes des offres d'emploi */
+  .job-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+    transition: 0.3s;
+  }
+  
+  .job-card:hover {
+    background: #e3e6ea;
+  }
+  
+  .job-info h3 {
+    color: #0048ff;
+    margin: 0;
+  }
+  
+  .company {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .location, .salary {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  /* 🎯 Bouton */
+  .job-actions button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background: #0048ff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .job-actions button:hover {
+    background: #0036cc;
+  }
+  
+  /* 🚨 Message si aucune offre */
+  .no-jobs {
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  /* 🌟 Navbar Styling */
+.navbar {
+  background: linear-gradient(135deg, #0048ff, #00d4ff);
+  padding: 15px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* 🔥 Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  src: url(job.png);
+  
+}
+
+.logo-image {
+  width: 30px;
+  height: auto;
+}
+
+.logo-text {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 3px;
+}
+
+/* 📌 Menu principal */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li {
+  display: inline-block;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffeb3b;
+}
+
+/* 📱 Bouton menu mobile */
+.mobile-menu {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+/* 📱 Menu mobile */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 250px;
+  height: 100vh;
+  background: rgba(0, 72, 255, 0.9);
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 50px 20px;
+  transition: right 0.4s ease-in-out;
+}
+
+.mobile-nav.open {
+  right: 0;
+}
+
+.mobile-nav li {
+  list-style: none;
+}
+
+.mobile-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px;
+  display: block;
+  border-radius: 6px;
+  transition: background 0.3s ease-in-out;
+}
+
+.mobile-nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+}
+
+  

@@ -1,0 +1,23 @@
+<div class="filters-container">
+    <!-- Barre de recherche -->
+    <input type="text" placeholder="Rechercher un job..." [(ngModel)]="searchTerm" (input)="applyFilters()" />
+  
+    <!-- Sélection de la catégorie -->
+    <select [(ngModel)]="selectedCategory" (change)="applyFilters()">
+      <option value="">Toutes les catégories</option>
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+  
+    <!-- Sélection de la localisation -->
+    <select [(ngModel)]="selectedLocation" (change)="applyFilters()">
+      <option value="">Toutes les localisations</option>
+      <option *ngFor="let location of locations" [value]="location">{{ location }}</option>
+    </select>
+  
+    <!-- Sélection du salaire minimum -->
+    <select [(ngModel)]="selectedSalary" (change)="applyFilters()">
+      <option value="">Tout salaire</option>
+      <option *ngFor="let salary of salaries" [value]="salary">{{ salary }} MAD</option>
+    </select>
+  </div>
+  

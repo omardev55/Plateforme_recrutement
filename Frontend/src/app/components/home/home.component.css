@@ -1,0 +1,233 @@
+/* 🌟 Styles Généraux */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* 🎨 Bannière Accueil */
+  .hero-banner {
+    text-align: center;
+    background: linear-gradient(135deg, #0048ff, #00d4ff);
+    color: white;
+    padding: 60px 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .hero-banner h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .hero-banner p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+  }
+  
+  /* 🔍 Barre de Recherche */
+  .search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+    gap: 10px;
+  }
+  
+  .search-input {
+    width: 60%;
+    padding: 15px;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    font-size: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .search-input:focus {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .search-button {
+    background: #0048ff;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+  }
+  
+  .search-button:hover {
+    background: #0036cc;
+    transform: scale(1.05);
+  }
+  
+  /* 🎭 Filtres */
+  .filters {
+    background: rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .filters label {
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .filters select,
+  .filters input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  /* 🌟 Offres Mises en Avant */
+  .featured-jobs h2,
+  .job-list h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0048ff;
+    font-size: 2rem;
+  }
+  
+  .job-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .job-card::before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(87, 143, 234, 0.2) 10%, transparent 70%);
+    transition: all 0.4s;
+  }
+  
+  .job-card:hover::before {
+    top: 0;
+    left: 0;
+  }
+  
+  .job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .job-card h3 {
+    color: #0048ff;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+  }
+  
+  .job-card p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+  
+  /* 🚀 Boutons */
+  .apply-button,
+  .view-details {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: #0048ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+  
+  .apply-button:hover,
+  .view-details:hover {
+    background: #002fb8;
+    transform: scale(1.05);
+  }
+  
+  /* ❌ Message si aucune offre */
+  .no-jobs {
+    text-align: center;
+    font-size: 18px;
+    color: #777;
+    margin-top: 20px;
+  }
+  
+  /* 📱 Responsive */
+  @media (max-width: 1024px) {
+    .search-input {
+      width: 75%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .search-bar {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .search-input {
+      width: 100%;
+      border-radius: 10px;
+    }
+  
+    .filters {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    .job-card h3 {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero-banner h1 {
+      font-size: 1.8rem;
+    }
+  
+    .hero-banner p {
+      font-size: 1rem;
+    }
+  
+    .search-button {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  
+  /* 🌀 Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

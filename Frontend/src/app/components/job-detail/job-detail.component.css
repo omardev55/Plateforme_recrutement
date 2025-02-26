@@ -1,0 +1,56 @@
+/* 🌟 Conteneur général */
+.job-detail-container {
+    display: flex;
+    height: 100vh;
+    font-family: 'Courier New', Courier, monospace;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .job-detail-content {
+    background-color: #f5f5f5;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .job-detail-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .job-detail-content p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+  
+  /* 🚀 Bouton Postuler */
+  .btn-apply {
+    background-color: #4a90e2;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-apply:hover {
+    background-color: #2c65b5;
+  }
+  
+  /* 📱 Responsive */
+  @media (max-width: 768px) {
+    .job-detail-content {
+      padding: 1rem;
+    }
+  
+    .btn-apply {
+      font-size: 0.9rem;
+      padding: 0.8rem 1.5rem;
+    }
+  }

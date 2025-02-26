@@ -1,0 +1,34 @@
+<nav class="navbar">
+    <div class="container">
+      <!-- Logo -->
+      <div class="logo">
+        <a routerLink="/">
+          <img src="job.png" alt="Logo" class="logo-image" />
+          <span class="logo-text">JobHub</span>
+        </a>
+      </div>
+  
+      <!-- Menu principal -->
+      <ul class="nav-links">
+        <li><a routerLink="/home" routerLinkActive="active">Accueil</a></li>
+        <li><a routerLink="/jobs" routerLinkActive="active">Offres d'emploi</a></li>
+        <li><a routerLink="/profile" routerLinkActive="active">JobHub</a></li>
+        <li><a routerLink="/login" routerLinkActive="active">Se connecter</a></li>
+        <li><a routerLink="/signup" routerLinkActive="active">S'inscrire</a></li>
+      </ul>
+  
+      <!-- Bouton mobile (hamburger) -->
+      <button class="mobile-menu" (click)="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+  
+      <!-- Menu mobile -->
+      <ul class="mobile-nav" [class.open]="isMenuOpen">
+        <li><a routerLink="/" (click)="closeMenu()">Accueil</a></li>
+        <li><a routerLink="/jobs" (click)="closeMenu()">Offres d'emploi</a></li>
+        <li><a routerLink="/profile" (click)="closeMenu()">JobHub</a></li>
+        <li><a routerLink="/login" (click)="closeMenu()">Se connecter</a></li>
+        <li><a routerLink="/signup" (click)="closeMenu()">S'inscrire</a></li>
+      </ul>
+    </div>
+  </nav>

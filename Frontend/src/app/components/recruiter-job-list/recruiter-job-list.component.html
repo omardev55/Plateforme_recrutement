@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+<div class="recruiter-container">
+  <div class="recruiter-header">
+    <h2>Mes Offres d'Emploi</h2>
+    <button routerLink="/recruiterjobcreate" class="btn btn-add">Ajouter une Offre</button>
+  </div>
+
+  <!-- Liste des offres -->
+  <div class="job-card" *ngFor="let job of jobs">
+    <h3>{{ job.title }}</h3>
+    <p><strong>Entreprise :</strong> {{ job.company }}</p>
+    <p><strong>Localisation :</strong> {{ job.location }}</p>
+    <p><strong>Catégorie :</strong> {{ job.category }}</p>
+  
+    <!-- Actions -->
+    <div class="actions">
+      <button 
+        [routerLink]="['/recruiter/job-edit', job.id]" 
+        class="btn btn-edit"
+      >
+        Éditer
+      </button>
+      <button 
+        [routerLink]="['/recruiter/job-delete', job.id]" 
+        class="btn btn-delete"
+      >
+        Supprimer
+      </button>
+    </div>
+  </div>
+  <!-- Message si aucune offre n'est disponible -->
+  <ng-template #noJobs>
+    <div class="no-jobs">
+      <p>Aucune offre d'emploi trouvée.</p>
+    </div>
+  </ng-template>
+</div>
+<app-footer></app-footer>

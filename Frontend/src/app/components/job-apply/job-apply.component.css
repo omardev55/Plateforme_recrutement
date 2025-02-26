@@ -1,0 +1,77 @@
+/* 🌟 Container principal */
+.job-apply-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .job-apply-container h2 {
+    text-align: center;
+    color: #0048ff;
+    margin-bottom: 20px;
+  }
+  
+  /* 📌 Formulaire */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .form-group textarea {
+    resize: none;
+  }
+  
+  /* 🛑 Messages d'erreur */
+  .error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  /* 🚀 Bouton */
+  button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #0048ff;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+  
+  button:hover:not(:disabled) {
+    background: #0036cc;
+  }
+  
+  /* ✅ Message de confirmation */
+  .success-message {
+    text-align: center;
+    color: green;
+    font-weight: bold;
+    margin-top: 15px;
+  }
+  

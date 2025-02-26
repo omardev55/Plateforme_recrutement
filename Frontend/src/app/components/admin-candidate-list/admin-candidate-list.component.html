@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <h2>👥 Liste des candidats</h2>
+  
+    <div class="filters">
+      <input type="text" [(ngModel)]="filters.name" (input)="applyFilters()" placeholder="🔍 Nom du candidat">
+      <input type="date" [(ngModel)]="filters.startDate" (change)="applyFilters()">
+      <input type="date" [(ngModel)]="filters.endDate" (change)="applyFilters()">
+      <input type="number" [(ngModel)]="filters.experience" (input)="applyFilters()" min="0" placeholder="⏳ Expérience (ans)">
+    </div>
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th>👤 Nom</th>
+          <th>📅 Inscription</th>
+          <th>⏳ Expérience</th>
+          <th>⚙️ Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let candidate of filteredCandidates">
+          <td>{{ candidate.name }}</td>
+          <td>{{ candidate.date }}</td>
+          <td>{{ candidate.experience }} ans</td>
+          <td>
+            <button (click)="viewCV(candidate.email)" class="btn btn-primary">📄 Voir CV</button>
+            <button (click)="deleteCandidate(candidate.id)" class="btn btn-danger">🗑️ Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <app-footer></app-footer>

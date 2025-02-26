@@ -1,0 +1,86 @@
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .filters {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .filters input, .filters select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 16px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .table th, .table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .table th {
+    background: #f4f4f4;
+  }
+  
+  .btn {
+    padding: 8px 12px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .btn-info {
+    background: #2196F3;
+  }
+  
+  .btn-info:hover {
+    background: #1976D2;
+    transform: scale(1.05);
+  }
+  
+  .btn-warning {
+    background: #FF9800;
+  }
+  
+  .btn-warning:hover {
+    background: #F57C00;
+    transform: scale(1.05);
+  }
+  
+  .btn-danger {
+    background: #ff4d4d;
+  }
+  
+  .btn-danger:hover {
+    background: #d32f2f;
+    transform: scale(1.05);
+  }
+  

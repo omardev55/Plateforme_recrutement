@@ -1,0 +1,119 @@
+/* 🌟 Footer Général */
+.footer {
+    background: linear-gradient(135deg, #0048ff, #00d4ff);
+    color: white;
+    padding: 40px 20px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* 🎨 Section principale */
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+  }
+  
+  .footer-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #00e6ff;
+  }
+  
+  .footer-section p {
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+  
+  /* 📋 Liens utiles */
+  .footer-section.links ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-section.links ul li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-section.links ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-section.links ul li a:hover {
+    color: #00e6ff;
+  }
+  
+  /* 📱 Réseaux sociaux */
+  .social-icons {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  .social-icons li a {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+  }
+  
+  .social-icons li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* 📞 Contact */
+  .footer-section.contact p {
+    margin-bottom: 10px;
+  }
+  
+  .footer-section.contact i {
+    margin-right: 10px;
+  }
+  
+  /* 📦 Bas du footer */
+  .footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .footer-bottom p {
+    font-size: 14px;
+    opacity: 0.8;
+  }
+  
+  /* 📱 Responsive */
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .footer-section {
+      margin-bottom: 20px;
+    }
+  
+    .social-icons {
+      justify-content: center;
+    }
+  }

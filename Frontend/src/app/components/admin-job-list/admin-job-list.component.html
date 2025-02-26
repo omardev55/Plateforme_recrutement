@@ -1,0 +1,90 @@
+<nav class="navbar">
+  <div class="container">
+    <!-- Logo -->
+    <div class="logo">
+      <a routerLink="/">
+        <img src="job.png" alt="Logo" class="logo-image" />
+        <span class="logo-text">JobHub</span>
+      </a>
+    </div>
+
+    <!-- Menu principal -->
+    <ul class="nav-links">
+      <li><a routerLink="/home" routerLinkActive="active">Accueil</a></li>
+      <li><a routerLink="/jobs" routerLinkActive="active">Aceuil</a></li>
+      <li><a routerLink="/profile" routerLinkActive="active">Mon Profil</a></li>
+      <li><a routerLink="/login" routerLinkActive="active">Se connecter</a></li>
+      <li><a routerLink="/signup" routerLinkActive="active">S'inscrire</a></li>
+    </ul>
+
+    <!-- Bouton mobile (hamburger) -->
+    <button class="mobile-menu" (click)="toggleMenu()">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <!-- Menu mobile -->
+    <ul class="mobile-nav" [class.open]="isMenuOpen">
+      <li><a routerLink="/" (click)="closeMenu()">Accueil</a></li>
+      <li><a routerLink="/jobs" (click)="closeMenu()">Offres d'emploi</a></li>
+      <li><a routerLink="/profile" (click)="closeMenu()">Mon Profil</a></li>
+      <li><a routerLink="/login" (click)="closeMenu()">Se connecter</a></li>
+      <li><a routerLink="/signup" (click)="closeMenu()">S'inscrire</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <h2>📋 Liste des Offres d’Emploi</h2>
+
+  <!-- Filtres -->
+  <div class="filters">
+    <input type="text" [(ngModel)]="filters.title" (input)="applyFilters()" placeholder="🔍 Titre de l'annonce">
+    <input type="text" [(ngModel)]="filters.company" (input)="applyFilters()" placeholder="🏢 Entreprise">
+    <input type="date" [(ngModel)]="filters.startDate" (change)="applyFilters()">
+    <input type="date" [(ngModel)]="filters.endDate" (change)="applyFilters()">
+    <select [(ngModel)]="filters.status" (change)="applyFilters()">
+      <option value="">📌 Tous</option>
+      <option value="active">✅ Actif</option>
+      <option value="closed">❌ Fermé</option>
+    </select>
+  </div>
+
+  <!-- Tableau des annonces -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>📌 Titre</th>
+        <th>🏢 Entreprise</th>
+        <th>📅 Date de publication</th>
+        <th>🔄 Statut</th>
+        <th>⚙️ Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let job of filteredJobs">
+        <td>{{ job.title }}</td>
+        <td>{{ job.company }}</td>
+        <td>{{ job.postedDate }}</td>
+        <td>
+          <span [ngClass]="{'active': job.status === 'active', 'closed': job.status === 'closed'}">
+            {{ job.status === 'active' ? '✅ Actif' : '❌ Fermé' }}
+          </span>
+        </td>
+        <td>
+          <button (click)="viewJob(job.id)" class="btn btn-info">👁️ Voir</button>
+          <button (click)="editJob(job.id)" class="btn btn-primary">✏️ Modifier</button>
+          <button (click)="openDeleteModal(job.id)" class="btn btn-danger">🗑️ Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Composant de suppression -->
+<app-admin-delete *ngIf="deleteModalVisible" 
+  [itemId]="selectedJobId"
+  [itemType]="'Annonce'"
+  (deleted)="handleDeletion($event)">
+</app-admin-delete>
+
+<app-footer></app-footer>

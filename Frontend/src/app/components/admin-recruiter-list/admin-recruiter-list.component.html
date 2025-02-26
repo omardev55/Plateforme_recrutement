@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <h2>🏢 Liste des recruteurs</h2>
+
+  <!-- Filtres -->
+  <div class="filters">
+    <input type="text" [(ngModel)]="filters.name" (input)="applyFilters()" placeholder="🔍 Nom de l'entreprise">
+    <select [(ngModel)]="filters.status" (change)="applyFilters()">
+      <option value="">📌 Tous les statuts</option>
+      <option value="✅ Actif">✅ Actif</option>
+      <option value="⚠️ En attente">⚠️ En attente</option>
+      <option value="❌ Suspendu">❌ Suspendu</option>
+    </select>
+  </div>
+
+  <!-- Liste des recruteurs -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>🏢 Entreprise</th>
+        <th>📧 Email</th>
+        <th>📅 Inscription</th>
+        <th>📌 Statut</th>
+        <th>⚙️ Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let recruiter of filteredRecruiters">
+        <td>{{ recruiter.name }}</td>
+        <td>{{ recruiter.email }}</td>
+        <td>{{ recruiter.registeredAt }}</td>
+        <td>{{ recruiter.status }}</td>
+        <td>
+          <button class="btn btn-info">👀 Voir</button>
+          <button class="btn btn-warning">✏️ Modifier</button>
+          <button class="btn btn-danger" (click)="deleteRecruiter(recruiter.id)">🗑️ Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-footer></app-footer>

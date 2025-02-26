@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+<div class="edit-job-container">
+  <h2>Modifier l'Offre</h2>
+  <form [formGroup]="jobForm" (ngSubmit)="onSubmit()" novalidate>
+    <!-- Titre -->
+    <label for="title">Titre de l'Offre</label>
+    <input type="text" id="title" formControlName="title" placeholder="Ex : Développeur Angular">
+
+    <!-- Entreprise -->
+    <label for="company">Nom de l'Entreprise</label>
+    <input type="text" id="company" formControlName="company" placeholder="Ex : TechCorp">
+
+    <!-- Localisation -->
+    <label for="location">Localisation</label>
+    <input type="text" id="location" formControlName="location" placeholder="Ex : Paris">
+
+    <!-- Catégorie -->
+    <label for="category">Catégorie</label>
+    <select id="category" formControlName="category">
+      <option value="Développement">Développement</option>
+      <option value="Design">Design</option>
+      <option value="Infrastructure">Infrastructure</option>
+      <option value="Management">Management</option>
+    </select>
+
+    <!-- Description -->
+    <label for="description">Description</label>
+    <textarea id="description" formControlName="description" placeholder="Détails de l'offre..."></textarea>
+
+    <!-- Bouton Soumettre -->
+    <button type="submit" class="btn btn-update" [disabled]="!jobForm.valid">Mettre à Jour</button>
+  </form>
+</div>
+<app-footer></app-footer>

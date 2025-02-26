@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<div class="job-apply-container">
+    <h2>Postuler à l'offre</h2>
+  
+    <!-- Formulaire de candidature -->
+    <form (ngSubmit)="submitApplication()" #applyForm="ngForm">
+      <!-- Nom complet -->
+      <div class="form-group">
+        <label for="name">Nom complet</label>
+        <input type="text" id="name" [(ngModel)]="application.name" name="name" required #name="ngModel">
+        <div class="error" *ngIf="name.invalid && name.touched">Ce champ est obligatoire</div>
+      </div>
+  
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" [(ngModel)]="application.email" name="email" required #email="ngModel">
+        <div class="error" *ngIf="email.invalid && email.touched">Email invalide</div>
+      </div>
+  
+      <!-- Téléphone -->
+      <div class="form-group">
+        <label for="phone">Téléphone</label>
+        <input type="tel" id="phone" [(ngModel)]="application.phone" name="phone" required #phone="ngModel">
+        <div class="error" *ngIf="phone.invalid && phone.touched">Ce champ est obligatoire</div>
+      </div>
+  
+      <!-- CV -->
+      <div class="form-group">
+        <label for="cv">CV (PDF uniquement)</label>
+        <input type="file" id="cv" (change)="onFileSelected($event)" required>
+        <div class="error" *ngIf="!selectedFile && fileTouched">Veuillez télécharger un CV</div>
+      </div>
+  
+      <!-- Lettre de motivation -->
+      <div class="form-group">
+        <label for="coverLetter">Lettre de motivation</label>
+        <textarea id="coverLetter" rows="4" [(ngModel)]="application.coverLetter" name="coverLetter"></textarea>
+      </div>
+  
+      <!-- Bouton de soumission -->
+      <button type="submit" [disabled]="applyForm.invalid || !selectedFile">Postuler</button>
+    </form>
+  
+    <!-- Message de confirmation -->
+    <div class="success-message" *ngIf="submitted">
+      ✅ Votre candidature a été envoyée avec succès !
+    </div>
+  </div>
+  <app-footer></app-footer>

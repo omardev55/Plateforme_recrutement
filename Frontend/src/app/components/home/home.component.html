@@ -1,0 +1,67 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <!-- Bannière Accueil -->
+    <div class="hero-banner">
+      <h1>Recherchez votre prochain emploi ici !</h1>
+      <p>Trouvez des opportunités qui correspondent à vos compétences.</p>
+    </div>
+  
+    <!-- Barre de recherche -->
+    <div class="search-bar">
+      <input
+        type="text"
+        [(ngModel)]="searchTerm"
+        placeholder="Rechercher un poste..."
+        (input)="onSearch()"
+        class="search-input"
+      />
+      <button (click)="onSearch()" class="search-button">Rechercher</button>
+    </div>
+  
+    <!-- Filtres -->
+    <div class="filters">
+      <h3>Filtrer par :</h3>
+      <label>
+        Catégorie :
+        <select [(ngModel)]="categoryFilter" (change)="onFilter()">
+          <option value="">Toutes</option>
+          <option *ngFor="let category of categories">{{ category }}</option>
+        </select>
+      </label>
+      <br />
+      <label>
+        Localisation :
+        <input type="text" [(ngModel)]="locationFilter" (input)="onFilter()" />
+      </label>
+    </div>
+  
+    <!-- Offres Mises en Avant -->
+    <div class="featured-jobs" *ngIf="highlightedJobs.length > 0">
+      <h2>Offres Mises en Avant :</h2>
+      <div class="job-card" *ngFor="let job of highlightedJobs">
+        <h3>{{ job.title }}</h3>
+        <p><strong>Entreprise :</strong> {{ job.company }}</p>
+        <p><strong>Localisation :</strong> {{ job.location }}</p>
+        <button class="view-details">Voir les Détails</button>
+      </div>
+    </div>
+  
+    <!-- Liste des offres d'emploi -->
+    <div class="job-list" *ngIf="filteredJobs.length > 0">
+      <h2>Offres d'emploi disponibles :</h2>
+      <div class="job-card" *ngFor="let job of filteredJobs">
+        <h3>{{ job.title }}</h3>
+        <p><strong>Entreprise :</strong> {{ job.company }}</p>
+        <p><strong>Localisation :</strong> {{ job.location }}</p>
+        <p><strong>Catégorie :</strong> {{ job.category }}</p>
+        <p><strong>Description :</strong> {{ job.description }}</p>
+        <button class="apply-button">Postuler</button>
+      </div>
+    </div>
+  
+    <!-- Message si aucune offre n'est disponible -->
+    <div class="no-jobs" *ngIf="filteredJobs.length === 0">
+      <p>Aucune offre d'emploi trouvée.</p>
+    </div>
+  </div>
+  <app-footer></app-footer>

@@ -1,0 +1,63 @@
+<!-- NAVBAR SPÉCIFIQUE POUR LA PAGE DES OFFRES -->
+<nav class="navbar">
+  <div class="container">
+    <!-- Logo -->
+    <div class="logo">
+      <a routerLink="/">
+        <img src="job.png" alt="Logo" class="logo-image" />
+        <span class="logo-text">JobHub</span>
+      </a>
+    </div>
+
+    <!-- Menu principal -->
+    <ul class="nav-links">
+      <li><a routerLink="/jobs" routerLinkActive="active">Offres d'emploi</a></li>
+      <li><a routerLink="/candidateprofile" routerLinkActive="active">Mon Profil</a></li>
+      <li><a (click)="logout()">Déconnexion</a></li>
+    </ul>
+
+    <!-- Bouton mobile (hamburger) -->
+    <button class="mobile-menu" (click)="toggleMenu()">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <!-- Menu mobile -->
+    <ul class="mobile-nav" [class.open]="isMenuOpen">
+      <li><a routerLink="/jobs" (click)="closeMenu()">Offres d'emploi</a></li>
+      <li><a routerLink="/profile" (click)="closeMenu()">Mon Profil</a></li>
+      <li><a (click)="logout(); closeMenu()">Déconnexion</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- CONTENU DE LA PAGE DES OFFRES -->
+<div class="job-list-container">
+  <h2>Offres d'emploi</h2>
+
+  <!-- Barre de recherche -->
+  <app-job-filters (filtersChanged)="applyFilters($event)"></app-job-filters>
+
+  <!-- Liste des offres -->
+  <div *ngIf="filteredJobs.length > 0; else noJobs">
+    <div class="job-card" *ngFor="let job of filteredJobs">
+      <div class="job-info">
+        <h3>{{ job.titre }}</h3>
+        <p class="job-type"><i class="fa-solid fa-briefcase"></i> {{ job.type }}</p>
+        <p class="job-description">{{ job.description }}</p>
+        <p class="job-date"><i class="fa-solid fa-calendar-days"></i> Publié le {{ job.datePublication | date:'dd/MM/yyyy à HH:mm' }}</p>
+        <p class="job-recruiter"><i class="fa-solid fa-user-tie"></i> Publié par {{ job.recruteurUsername }}</p>
+      </div>
+
+      <div class="job-actions">
+        <button (click)="apply(job.id)">Postuler</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Message si aucune offre trouvée -->
+  <ng-template #noJobs>
+    <p class="no-jobs">Aucune offre trouvée.</p>
+  </ng-template>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,79 @@
+<nav class="navbar">
+    <div class="container">
+      <!-- Logo -->
+      <div class="logo">
+        <a routerLink="/">
+          <img src="job.png" alt="Logo" class="logo-image" />
+          <span class="logo-text">JobHub</span>
+        </a>
+      </div>
+  
+      <!-- Menu principal -->
+      <ul class="nav-links">
+        <li><a routerLink="/home" routerLinkActive="active">Accueil</a></li>
+        <li><a routerLink="/profile" routerLinkActive="active">Mon Profil</a></li>
+        <li><a (click)="logout()">Déconnexion</a></li>
+        <li><a routerLink="/signup" routerLinkActive="active"></a></li>
+      </ul>
+  
+      <!-- Bouton mobile (hamburger) -->
+      <button class="mobile-menu" (click)="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+  
+      <!-- Menu mobile -->
+      <ul class="mobile-nav" [class.open]="isMenuOpen">
+        <li><a routerLink="/" (click)="closeMenu()">Accueil</a></li>
+        <li><a routerLink="/jobs" (click)="closeMenu()">Offres d'emploi</a></li>
+        <li><a routerLink="/profile" (click)="closeMenu()">Mon Profil</a></li>
+        <li><a routerLink="/login" (click)="closeMenu()">Se connecter</a></li>
+        <li><a routerLink="/signup" (click)="closeMenu()">S'inscrire</a></li>
+      </ul>
+    </div>
+  </nav>
+
+<div class="dashboard-container">
+  <h2>Bienvenue sur votre tableau de bord Recruteur !</h2>
+
+  <div class="dashboard-sections">
+    <div class="card">
+      <h3>📢 Mes Annonces</h3>
+      <p>Gérez vos offres d'emploi et ajoutez de nouvelles annonces.</p>
+      <button class="btn-action">Gérer les annonces</button>
+    </div>
+
+    <div class="card">
+        <h3>📋 Candidatures</h3>
+        <p>Consultez les candidatures reçues et répondez aux candidats.</p>
+        <button class="btn-action" [routerLink]="'/candidatures'">Voir les candidatures</button>
+      </div>
+
+    <div class="card">
+      <h3>⚙️ Paramètres</h3>
+      <p>Modifiez les informations de votre profil et celles de votre entreprise.</p>
+      <button class="btn-action">Gérer mon profil</button>
+    </div>
+  </div>
+</div>
+<h2>Publier une Annonce</h2>
+<form [formGroup]="annonceForm" (ngSubmit)="onSubmit()">
+  <label for="titre">Titre :</label>
+  <input type="text" id="titre" formControlName="titre" required>
+
+  <label for="description">Description :</label>
+  <textarea id="description" formControlName="description" required></textarea>
+
+  <label for="type">Type :</label>
+  <select id="type" formControlName="type">
+    <option value="CDI">CDI</option>
+    <option value="CDD">CDD</option>
+    <option value="STAGE">Stage</option>
+  </select>
+
+  <button type="submit" class="btn-submit">Publier</button>
+</form>
+
+<!-- Affichage du message de succès -->
+<p *ngIf="successMessage" class="success-message">{{ successMessage }}</p>
+
+<app-footer></app-footer>

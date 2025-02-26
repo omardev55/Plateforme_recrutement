@@ -1,0 +1,91 @@
+/* Styles du modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Fond semi-transparent */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px); /* Effet de flou */
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  /* Contenu du modal */
+  .modal-content {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    animation: slideIn 0.3s ease-in-out;
+  }
+  
+  /* Titre */
+  .modal-content h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff4d4d;
+    margin-bottom: 10px;
+  }
+  
+  /* Texte */
+  .modal-content p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Boutons */
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .btn {
+    padding: 10px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Bouton Supprimer */
+  .btn-danger {
+    background: #ff4d4d;
+    color: white;
+  }
+  
+  .btn-danger:hover {
+    background: #d32f2f;
+    transform: scale(1.05);
+  }
+  
+  /* Bouton Annuler */
+  .btn-secondary {
+    background: #6b7280;
+    color: white;
+  }
+  
+  .btn-secondary:hover {
+    background: #4b5563;
+    transform: scale(1.05);
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  

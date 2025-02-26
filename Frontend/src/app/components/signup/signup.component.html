@@ -1,0 +1,59 @@
+<app-navbar></app-navbar>
+<div class="login-container">
+  <div class="login-left">
+    <h2>Sign Up! 🎉</h2>
+    <p>Create your account in just a few steps.</p>
+    <button class="btn btn-google">Sign up with Google</button>
+    <button class="btn btn-apple">Sign up with Apple</button>
+    <p>or Sign Up with Email</p>
+
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <label for="username">Username</label>
+      <input type="text" id="username" formControlName="username" placeholder="Entrez votre username">
+    
+      <label for="nom">Nom</label>
+      <input type="text" id="nom" formControlName="nom" placeholder="Entrez votre nom">
+    
+      <label for="prenom">Prénom</label>
+      <input type="text" id="prenom" formControlName="prenom" placeholder="Entrez votre prénom">
+    
+      <label for="email">Email</label>
+      <input type="email" id="email" formControlName="email" placeholder="exemple@domaine.com">
+    
+      <label for="password">Mot de passe</label>
+      <input 
+        type="{{ isPasswordVisible ? 'text' : 'password' }}" 
+        id="password" 
+        formControlName="password"
+        placeholder="******"
+      >
+      <i (click)="togglePasswordVisibility()">👁️</i>
+    
+      <label for="confirmPassword">Confirmez le mot de passe</label>
+      <input type="password" id="confirmPassword" formControlName="confirmPassword" placeholder="******">
+    
+      <!-- 📌 Ajout du choix du rôle -->
+      <label for="role">Sélectionnez votre rôle</label>
+      <select id="role" formControlName="role">
+        <option value="CANDIDAT">CANDIDAT</option>
+        <option value="RECRUTEUR">RECRUTEUR</option>
+      </select>
+    
+      <!-- Affichage des erreurs -->
+      <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    
+      <button type="submit" class="btn btn-signin" [disabled]="!signupForm.valid">S'inscrire</button>
+    </form>
+
+    <p>Already have an account? <a routerLink="/login">Log In Here</a></p>
+  </div>
+
+  <div class="login-right">
+    <div class="login-info">
+      <h3>Why should I sign up?</h3>
+      <p>By signing up, you can start exploring job opportunities, create your profile, and apply to jobs effortlessly.</p>
+      <img src="assets/job.png" alt="Dashboard example">
+    </div>
+  </div>
+</div>
+

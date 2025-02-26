@@ -1,0 +1,15 @@
+<app-navbar></app-navbar>
+<div class="job-detail-container">
+  <div class="job-detail-content">
+    <h2>Détails de l'Offre</h2>
+    <p><strong>Titre :</strong> {{ job.title }}</p>
+    <p><strong>Entreprise :</strong> {{ job.company }}</p>
+    <p><strong>Localisation :</strong> {{ job.location }}</p>
+    <p><strong>Catégorie :</strong> {{ job.category }}</p>
+    <p><strong>Description :</strong> {{ job.description }}</p>
+
+    <!-- Bouton Postuler -->
+    <button (click)="applyToJob()" class="btn btn-apply">Postuler</button>
+  </div>
+</div>
+<app-footer></app-footer>
